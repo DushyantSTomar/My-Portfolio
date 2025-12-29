@@ -1,0 +1,26 @@
+@use '../styles/variables' as *;
+@use "sass:color";
+
+.backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: $bg-accent;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    border: none;
+    outline: none;
+
+    &:hover {
+        background: color.adjust(#f2295b, $lightness: -10%); // Hardcoded fallback or use variable if possible, but darkening valid hex helps
+        transform: translateY(-5px);
+    }
+}

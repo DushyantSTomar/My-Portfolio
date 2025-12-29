@@ -1,0 +1,203 @@
+@use '../styles/variables' as *;
+
+.hero {
+  min-height: 100vh;
+  background: $gradient-hero;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; // account for fixed header
+
+  position: relative;
+  overflow: hidden; // Ensure blobs don't overflow
+
+  // Parallax Background Shapes
+  .bgShape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .shape1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, $bg-accent 0%, transparent 70%);
+    top: -10%;
+    left: -10%;
+  }
+
+  .shape2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #ff6b6b 0%, transparent 70%);
+    bottom: 10%;
+    right: -5%;
+  }
+
+  .shape3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #4ecdc4 0%, transparent 70%);
+    top: 40%;
+    left: 40%;
+    opacity: 0.3;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap; // Responsive wrap
+    position: relative;
+    z-index: 1; // Above background shapes
+    box-sizing: border-box;
+  }
+
+  .content {
+    flex: 1;
+    max-width: 600px;
+
+    h4 {
+      font-family: $font-primary;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $bg-accent;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: $font-headings;
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-family: $font-primary;
+      font-size: 1.8rem;
+      color: $text-secondary;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-family: $font-primary;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: $text-secondary; // lighter text
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+
+      a {
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        cursor: pointer;
+
+        &.btnPrimary {
+          background: $bg-accent;
+          color: $text-white;
+          border: 2px solid $bg-accent;
+
+          &:hover,
+          &:active {
+            background: transparent;
+            color: $bg-accent;
+          }
+        }
+
+        &.btnOutline {
+          background: transparent;
+          border: 2px solid $text-white;
+          color: $text-white;
+
+          &:hover,
+          &:active {
+            background: $text-white;
+            color: $bg-primary;
+          }
+        }
+      }
+    }
+  }
+
+  .imageWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column-reverse; // Content on top, Image bottom? No, column-reverse puts last element first -> Image first.
+      // Actually standard is often Image Top. 
+      // HTML structure: Content (1st), ImageWrapper (2nd).
+      // column-reverse -> ImageWrapper (Top), Content (Bottom).
+      // Let's do that.
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      width: 100%;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        margin: 0 auto 30px;
+        font-size: 1rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+
+        a {
+          width: 80%;
+          text-align: center;
+        }
+      }
+    }
+
+    .imageWrapper {
+      justify-content: center;
+      margin-bottom: 20px;
+      width: 100%;
+
+      img {
+        max-width: 80%; // Limit size on mobile
+      }
+
+      // Adjust parallax shapes for mobile to avoid overflow issues
+      .bgShape {
+        opacity: 0.2; // Dimmer on mobile
+      }
+    }
+  }
+}

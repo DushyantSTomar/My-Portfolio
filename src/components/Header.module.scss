@@ -1,0 +1,101 @@
+@use '../styles/variables' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  // width: 100%; // Removed to prevent overflow if padding is added
+  padding: 0.5rem 0; // Reduced from 1rem
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: $header-initial-bg;
+
+  &.scrolled {
+    background: $header-scrolled-bg;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 0.3rem 0; // Reduced from 0.8rem
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .logo {
+    img {
+      height: 60px; // Reduced from 80px
+      width: auto;
+    }
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      gap: 30px;
+
+      li {
+        a {
+          font-family: $font-primary;
+          font-weight: 500;
+          font-size: 1rem;
+          color: $text-white;
+          position: relative;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $nav-hover-color;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileToggle {
+    display: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .mobileToggle {
+      display: block;
+    }
+
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 29, 103, 0.95);
+      padding: 20px 0;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.5s ease-in-out;
+
+      &.active {
+        clip-path: circle(140% at 100% 0);
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+
+      // Ensure Play button is clearly visible
+      button {
+        margin-left: 0 !important;
+        margin-top: 10px;
+        transform: scale(1.1);
+      }
+    }
+
+    .logo img {
+      height: 45px; // Reduced from 60px for mobile
+    }
+  }
+}

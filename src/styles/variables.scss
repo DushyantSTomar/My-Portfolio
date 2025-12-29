@@ -1,0 +1,24 @@
+// SCSS Mappings (for backward compatibility)
+$bg-primary: var(--bg-primary);
+$bg-accent: var(--bg-accent);
+$text-white: var(--text-white);
+$text-secondary: var(--text-secondary);
+$card-bg: var(--card-bg);
+$footer-bg: var(--footer-bg);
+$static-white: var(--static-white);
+$glass-bg: var(--glass-bg);
+$border-color: var(--border-color);
+$faint-text: var(--faint-text);
+$header-initial-bg: var(--header-initial-bg);
+$header-scrolled-bg: var(--header-scrolled-bg);
+$nav-hover-color: var(--nav-hover-color);
+$progress-bar-color: var(--progress-bar-color);
+
+// Gradients
+$gradient-hero: linear-gradient(171deg, var(--bg-primary) 33%, var(--bg-accent) 100%);
+$gradient-footer: linear-gradient(var(--bg-primary) 0%, var(--bg-accent) 100%);
+
+// Fonts
+$font-primary: 'Ubuntu', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+$font-headings: 'Poppins', sans-serif;

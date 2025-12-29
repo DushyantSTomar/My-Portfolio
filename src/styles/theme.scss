@@ -1,0 +1,36 @@
+:root {
+    --bg-primary: #0b1d67;
+    --bg-accent: #f2295b;
+    --text-white: #ffffff;
+    --text-secondary: #e0e0e0;
+    --card-bg: #162a75;
+    --footer-bg: #25283e;
+    --modal-overlay: rgba(0, 0, 0, 0.85);
+    --static-white: #ffffff;
+    --static-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --faint-text: rgba(255, 255, 255, 0.03);
+    --header-initial-bg: transparent;
+    --header-scrolled-bg: rgba(11, 29, 103, 0.85);
+    --nav-hover-color: #f2295b;
+    --progress-bar-color: #f2295b;
+}
+
+[data-theme='light'] {
+    --bg-primary: #faf9f6;
+    --bg-accent: #f2295b;
+    --text-white: #1a202c;
+    /* Deep Indigo for sharp contrast */
+    --text-secondary: #4a5568;
+    --card-bg: #ffffff;
+    --footer-bg: #e2e8f0;
+    --modal-overlay: rgba(255, 255, 255, 0.85);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --faint-text: rgba(0, 0, 0, 0.05);
+    --header-initial-bg: rgba(242, 41, 91, 0.85);
+    --header-scrolled-bg: rgba(242, 41, 91, 0.85);
+    --nav-hover-color: #ffffff;
+    --progress-bar-color: #ffffff;
+}

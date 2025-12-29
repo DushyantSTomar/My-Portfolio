@@ -1,0 +1,56 @@
+@use '../styles/variables' as *;
+
+.techSection {
+    padding: 60px 0;
+    background: #ffffff !important;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+
+    .header {
+        margin-bottom: 40px;
+
+        h2 {
+            font-family: $font-headings;
+            color: #0b1d67;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 60px;
+            height: 3px;
+            background: $bg-accent;
+            margin: 0 auto;
+        }
+    }
+
+    .swiper {
+        padding: 20px 0;
+        background: transparent !important;
+
+        .slide {
+            background: transparent !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 80px;
+                width: auto;
+                object-fit: contain;
+                filter: grayscale(100%);
+                transition: filter 0.3s;
+                opacity: 0.7;
+
+                &:hover,
+                &:active {
+                    filter: grayscale(0%) drop-shadow(0 0 8px $bg-accent);
+                    opacity: 1;
+                    transform: scale(1.1);
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+    }
+}
