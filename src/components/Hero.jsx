@@ -67,7 +67,7 @@ const Hero = () => {
 
           <div className={styles.buttons}>
             <motion.a
-              href="/assets/resume.pdf"
+              href="/assets/Dushyant_Tomar_Senior_React_Native_Developer.pdf"
               className={styles.btnPrimary}
               target="_blank"
               rel="noopener noreferrer"
