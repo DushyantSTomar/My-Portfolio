@@ -10,8 +10,7 @@ const About = () => {
                     className={styles.titleWrapper}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                    transition={{ duration: 0.6 }}>
                     <h1 className={styles.bigTitle}>About Me</h1>
                 </motion.div>
 
@@ -20,11 +19,10 @@ const About = () => {
                         className={styles.text}
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
+                        transition={{ duration: 0.6, delay: 0.2 }}>
                         <h2>I'm a Developer</h2>
                         <p>
-                            React Developer with 4.5+ years of experience delivering scalable mobile and web applications using React Native, ReactJS, Node.js, Express, Firebase, and Redux Toolkit.
+                            React Developer with 5+ years of experience delivering scalable mobile and web applications using React Native, ReactJS, Node.js, Express, Firebase, and Redux Toolkit.
                         </p>
                         <p>
                             Proven ability to lead development teams, collaborate with cross-functional stakeholders, and implement CI/CD pipelines to streamline deployment. Skilled in optimizing app performance and ensuring code quality.
