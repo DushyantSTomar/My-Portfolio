@@ -1,0 +1,268 @@
+@use '../styles/variables' as *;
+
+.blogsSection {
+    padding: 100px 0;
+    position: relative;
+    z-index: 10;
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .header {
+        margin-bottom: 50px;
+        text-align: center;
+
+        h2 {
+            font-family: $font-headings;
+            color: $text-white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 60px;
+            height: 3px;
+            background: $bg-accent;
+            margin: 0 auto;
+        }
+    }
+
+    .swiperContainer {
+        position: relative;
+        padding: 0 40px; // Make room for arrows on the sides
+
+        .swiper {
+            padding: 20px 0 60px; // Increased bottom padding for dots
+
+            .slide {
+                height: auto;
+                display: flex;
+            }
+        }
+
+        // Custom Pagination Dots
+        :global(.swiper-pagination) {
+            bottom: 0px !important; // override default
+
+            :global(.swiper-pagination-bullet) {
+                background: rgba(255, 255, 255, 0.4);
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                transition: all 0.3s ease;
+                margin: 0 6px !important;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.8);
+                }
+            }
+
+            :global(.swiper-pagination-bullet-active) {
+                background: $bg-accent;
+                width: 24px;
+                border-radius: 5px;
+            }
+        }
+
+        // Custom Navigation Buttons
+        .swiperButtonPrev,
+        .swiperButtonNext {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba($bg-primary, 0.6); // Semi-transparent based on theme
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $text-white;
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover,
+            &:active {
+                background: $bg-accent;
+                color: $text-white;
+                border-color: $bg-accent;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            // Swiper native classes often add default icons we need to override
+            &::after {
+                display: none;
+            }
+        }
+
+        .swiperButtonPrev {
+            left: 0;
+            margin-top: -10px; // Adjust slightly if needed visually above dots
+        }
+
+        .swiperButtonNext {
+            right: 0;
+            margin-top: -10px;
+        }
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.03); // Very subtle, almost transparent base
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06); // Extremely soft border
+        border-top: 1px solid rgba(255, 255, 255, 0.12); // Slightly stronger top edge for lighting effect
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); // Base soft shadow to separate from background
+        backdrop-filter: blur(8px); // Gentle glass blur to let gradient seep through
+        -webkit-backdrop-filter: blur(8px);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+
+        .imageBox {
+            width: 100%;
+            height: 130px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+        }
+
+        &:hover {
+            transform: translateY(-12px) scale(1.02); // Stronger lift
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); // Deeper shadow 
+            border-color: rgba(255, 255, 255, 0.15); // Edge brightens on hover
+            background: rgba(255, 255, 255, 0.06); // Slightly fill glass on hover
+
+            .imageBox img {
+                transform: scale(1.08);
+            }
+
+            .content .btnPrimary {
+                background: $bg-accent;
+                color: $text-white;
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+
+            h3 {
+                font-family: $font-headings;
+                font-size: 1.4rem; // Slightly smaller to fit compact design better
+                color: $text-white;
+                margin-bottom: 12px;
+                font-weight: 600;
+                line-height: 1.3;
+
+                // Clamp title to 2 lines
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            p {
+                font-family: $font-primary;
+                font-size: 0.95rem; // Slightly smaller for compactness
+                color: $text-secondary;
+                line-height: 1.5;
+                margin-bottom: 25px;
+
+                // Clamp summary to 2 lines
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .btnPrimary {
+                margin-top: auto;
+                align-self: flex-start;
+                padding: 10px 24px;
+                border-radius: 30px;
+                font-weight: 600;
+                font-family: $font-primary;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: $bg-accent;
+                color: $text-white;
+                border: 2px solid $bg-accent;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover,
+                &:active {
+                    background: transparent;
+                    color: $bg-accent;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 0;
+
+        .swiperContainer {
+            padding: 0 10px; // Reduce arrow padding on mobile
+
+            .swiperButtonPrev,
+            .swiperButtonNext {
+                width: 36px;
+                height: 36px;
+                background: rgba($bg-primary, 0.8);
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            .swiperButtonPrev {
+                left: 0;
+            }
+
+            .swiperButtonNext {
+                right: 0;
+            }
+        }
+
+        .header h2 {
+            font-size: 2.5rem;
+        }
+
+        .card .content {
+            padding: 20px;
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+        }
+    }
+}

@@ -23,17 +23,23 @@ const Header = () => {
 
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'About me', path: '#Aboutme' },
-        { name: 'Portfolio', path: '#work' },
-        { name: 'Contact', path: '#contact' }
+        { name: 'About me', path: '/#Aboutme' },
+        { name: 'Portfolio', path: '/#work' },
+        { name: 'Blogs', path: '/blogs' },
+        { name: 'Contact', path: '/#contact' }
     ];
 
     // Note: Implementing scroll-to-id for single page behavior while using NavLink for structure
     const scrollToSection = (id) => {
-        const element = document.querySelector(id);
+        // Extract the actual ID if it accidentally includes '/' like '/#Aboutme'
+        const cleanId = id.includes('#') ? id.substring(id.indexOf('#')) : id;
+        const element = document.querySelector(cleanId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             setMenuOpen(false);
+        } else if (window.location.pathname !== '/') {
+            // If we're not on home and the element isn't found, 
+            // the NavLink will handle routing to '/' and putting the hash in URL
         }
     };
 
@@ -53,17 +59,25 @@ const Header = () => {
                         <ul>
                             {navLinks.map((link, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={link.path}
+                                    <NavLink
+                                        to={link.path}
                                         onClick={(e) => {
-                                            if (link.path.startsWith('#')) {
-                                                e.preventDefault();
-                                                scrollToSection(link.path);
+                                            if (link.path.includes('#')) {
+                                                if (window.location.pathname === '/' || window.location.pathname === '') {
+                                                    e.preventDefault();
+                                                    scrollToSection(link.path);
+                                                }
+                                            } else {
+                                                setMenuOpen(false);
                                             }
                                         }}
+                                        className={({ isActive }) =>
+                                            // Handle exact match for home or actual route match for /blogs
+                                            (isActive && link.path === '/blogs') ? styles.activeLink : ''
+                                        }
                                     >
                                         {link.name}
-                                    </a>
+                                    </NavLink>
                                 </li>
                             ))}
                             <li>

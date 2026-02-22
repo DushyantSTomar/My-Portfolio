@@ -1,0 +1,105 @@
+@use '../styles/variables' as *;
+
+.blogListingSection {
+    padding: 120px 0 80px;
+    background: $gradient-hero;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        h1 {
+            font-size: 3rem;
+            color: $text-white;
+            margin-bottom: 20px;
+            font-family: $font-headings;
+        }
+
+        .line {
+            width: 80px;
+            height: 4px;
+            background: $bg-accent;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+    }
+
+    .playlistsContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 80px; // Large gap between different playlists
+    }
+
+    .playlistRow {
+        width: 100%;
+        position: relative;
+        overflow: hidden; // Prevents horizontal spill outside the page
+    }
+
+    .categoryTitle {
+        font-family: $font-headings;
+        font-size: 2.2rem;
+        color: $text-white;
+        margin-bottom: 25px;
+        padding-left: 20px;
+        font-weight: 600;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: $bg-accent;
+            border-radius: 4px;
+        }
+    }
+
+    // Breadcrumbs logic to mirror the Detail page setup
+    .breadcrumbs {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+        font-family: $font-primary;
+        font-size: 0.95rem;
+
+        .crumbLink {
+            color: $text-secondary;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $bg-accent;
+            }
+        }
+
+        .separator {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .crumbCurrent {
+            color: $text-white;
+            font-weight: 500;
+        }
+    }
+}
