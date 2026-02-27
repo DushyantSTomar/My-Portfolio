@@ -34,20 +34,62 @@
 
     .swiperContainer {
         position: relative;
-        padding: 0 40px; // Make room for arrows on the sides
+        padding: 0; // Removed side padding so carousel bleeds seamlessly to container edge
 
         .swiper {
             padding: 20px 0 60px; // Increased bottom padding for dots
 
             .slide {
-                height: auto;
+                width: 300px !important; // Explicit single identical width globally
+                height: 360px !important; // Explicit single identical height globally
                 display: flex;
+            }
+        }
+
+        .staticGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 20px 0 60px;
+            width: 100%;
+
+            .slide {
+                width: 100% !important;
+                height: 350px !important; // Normalized height for grid cards
+                display: flex;
+
+                .card {
+                    height: 100% !important;
+                    width: 100% !important;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 480px) {
+                grid-template-columns: 1fr;
             }
         }
 
         // Custom Pagination Dots
         :global(.swiper-pagination) {
             bottom: 0px !important; // override default
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap; // Prevent wrapping
+            overflow-x: auto; // Allow scrolling if too many items
+            padding: 5px 0;
+            width: 100%;
+            -ms-overflow-style: none; // Hide scrollbar for IE/Edge
+            scrollbar-width: none; // Hide scrollbar for Firefox
+
+            // Hide scrollbar for Webkit browsers
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             :global(.swiper-pagination-bullet) {
                 background: rgba(255, 255, 255, 0.4);
@@ -56,6 +98,7 @@
                 height: 10px;
                 transition: all 0.3s ease;
                 margin: 0 6px !important;
+                flex-shrink: 0; // Prevent dots from squishing
 
                 &:hover {
                     background: rgba(255, 255, 255, 0.8);
@@ -123,15 +166,28 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+
+        @media screen and (max-width: 768px) {
+            height: auto !important; // Force content-driven height on mobile
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+        }
+
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); // Base soft shadow to separate from background
         backdrop-filter: blur(8px); // Gentle glass blur to let gradient seep through
         -webkit-backdrop-filter: blur(8px);
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
 
         .imageBox {
             width: 100%;
-            height: 130px;
+            height: 140px; // Strictly locked height
+            flex-shrink: 0;
             overflow: hidden;
+            display: block; // Ensure no baseline gaps
 
             img {
                 width: 100%;
@@ -160,50 +216,59 @@
         }
 
         .content {
-            padding: 30px;
+            padding: 16px 20px; // Thinner padding restores vertical breathing room for text
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            overflow: hidden; // Precautionary clamp for total card content bounds
 
             h3 {
                 font-family: $font-headings;
-                font-size: 1.4rem; // Slightly smaller to fit compact design better
+                font-size: 1.15rem; // Scaled to prevent severe wrapping
                 color: $text-white;
-                margin-bottom: 12px;
+                margin-bottom: 6px;
                 font-weight: 600;
                 line-height: 1.3;
 
-                // Clamp title to 2 lines
+                // Enforce STRICT height to mathematically prevent grid layout shifting 
+                height: 3rem; // Exactly 2 lines worth of space
+                white-space: normal;
+                word-wrap: break-word;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             p {
                 font-family: $font-primary;
-                font-size: 0.95rem; // Slightly smaller for compactness
+                font-size: 0.85rem;
                 color: $text-secondary;
-                line-height: 1.5;
-                margin-bottom: 25px;
+                line-height: 1.4;
+                margin-bottom: 12px;
 
-                // Clamp summary to 2 lines
+                // Enforce STRICT height to mathematically prevent varying summary lengths
+                height: 2.4rem; // Exactly 2 lines worth of space
+                white-space: normal;
+                word-wrap: break-word;
                 display: -webkit-box;
-                -webkit-line-clamp: 2;
+                -webkit-line-clamp: 2; // Cut summary to 2 lines
                 line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .btnPrimary {
                 margin-top: auto;
-                align-self: flex-start;
-                padding: 10px 24px;
+                align-self: center; // Horizontally center the deep dive button
+                padding: 8px 20px; // Scaled to fit comfortably inside the newly constrained space
                 border-radius: 30px;
                 font-weight: 600;
                 font-family: $font-primary;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 text-transform: uppercase;
                 text-decoration: none;
                 background: $bg-accent;
@@ -225,7 +290,25 @@
         padding: 60px 0;
 
         .swiperContainer {
-            padding: 0 10px; // Reduce arrow padding on mobile
+            padding: 0; // Full bleed on mobile
+
+            .slide,
+            .swiper .slide,
+            .staticGrid .slide {
+                height: auto !important; // Force content-driven height on mobile
+                min-height: auto !important; // Remove rigid minimums
+                margin-bottom: 20px;
+                display: flex;
+            }
+
+            .slide,
+            .swiper .slide,
+            .staticGrid .slide {
+                height: auto !important; // Force content-driven height on mobile
+                min-height: auto !important; // Remove rigid minimums
+                margin-bottom: 20px;
+                display: flex;
+            }
 
             .swiperButtonPrev,
             .swiperButtonNext {
@@ -253,15 +336,28 @@
         }
 
         .card .content {
-            padding: 20px;
+            padding: 24px 20px; // Increased padding for spacious feel
+            height: auto !important;
+            overflow: visible !important;
 
             h3 {
                 font-size: 1.2rem;
+                height: auto !important; // Force height to auto
+                margin-bottom: 15px; // Balanced gap heading -> paragraph
+                overflow: visible !important;
+                display: block !important; // Override line-clamp -webkit-box
+                -webkit-line-clamp: unset !important;
+                line-clamp: unset !important;
             }
 
             p {
                 font-size: 0.95rem;
-                margin-bottom: 25px;
+                height: auto !important; // Force height to auto
+                margin-bottom: 25px; // Balanced gap paragraph -> button
+                overflow: visible !important;
+                display: block !important; // Override line-clamp -webkit-box
+                -webkit-line-clamp: unset !important;
+                line-clamp: unset !important;
             }
         }
     }

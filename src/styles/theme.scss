@@ -7,7 +7,6 @@
     --footer-bg: #25283e;
     --modal-overlay: rgba(0, 0, 0, 0.85);
     --static-white: #ffffff;
-    --static-white: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --border-color: rgba(255, 255, 255, 0.2);
     --faint-text: rgba(255, 255, 255, 0.03);
@@ -15,6 +14,12 @@
     --header-scrolled-bg: rgba(11, 29, 103, 0.85);
     --nav-hover-color: #f2295b;
     --progress-bar-color: #f2295b;
+
+    /* Code blocks - Dark Theme (slightly lighter dark background with readable syntax colors) */
+    --code-bg: rgba(255, 255, 255, 0.08);
+    /* slightly lighter than the page background */
+    --code-text: #e2e8f0;
+    --code-border: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme='light'] {
@@ -33,4 +38,9 @@
     --header-scrolled-bg: rgba(242, 41, 91, 0.85);
     --nav-hover-color: #ffffff;
     --progress-bar-color: #ffffff;
+
+    /* Code blocks - Light Theme (dark code background with high-contrast text) */
+    --code-bg: #0d1117;
+    --code-text: #e6edf3;
+    --code-border: rgba(0, 0, 0, 0.1);
 }

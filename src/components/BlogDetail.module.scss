@@ -17,6 +17,26 @@
         box-sizing: border-box;
     }
 
+    .backNav {
+        margin-bottom: 25px;
+
+        .backLink {
+            display: inline-flex;
+            align-items: center;
+            font-family: $font-primary;
+            font-size: 0.95rem;
+            color: $bg-accent;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                opacity: 0.8; // Safer than SASS lighten() on CSS variables
+                transform: translateX(-4px);
+            }
+        }
+    }
+
     .breadcrumbs {
         display: flex;
         align-items: center;
@@ -133,12 +153,12 @@
         }
 
         .codeBlockPlaceholder {
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--code-bg, rgba(255, 255, 255, 0.03));
             padding: 20px;
             border-radius: 10px;
             margin: 30px 0;
             overflow-x: auto;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--code-border, rgba(255, 255, 255, 0.1));
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
 
@@ -149,7 +169,7 @@
             code {
                 font-family: 'Courier New', Courier, monospace;
                 font-size: 0.95rem;
-                color: #d4d4d4;
+                color: var(--code-text, #d4d4d4);
                 line-height: 1.5;
             }
         }

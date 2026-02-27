@@ -83,16 +83,7 @@ const Header = () => {
                             <li>
                                 <button
                                     onClick={() => setGameOpen(true)}
-                                    style={{
-                                        background: 'rgba(255,255,255,0.1)',
-                                        border: '1px solid rgba(255,255,255,0.2)',
-                                        color: 'white',
-                                        padding: '5px 15px',
-                                        borderRadius: '20px',
-                                        cursor: 'pointer',
-                                        fontFamily: 'inherit',
-                                        marginLeft: '10px'
-                                    }}
+                                    className={styles.playButton}
                                 >
                                     Play 🎮
                                 </button>

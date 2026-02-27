@@ -38,6 +38,21 @@ const BlogDetail = () => {
     return (
         <section className={styles.blogDetailSection}>
             <div className={styles.container}>
+                <motion.div
+                    className={styles.backNav}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <Link to="/blogs" className={styles.backLink}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        Back to Blogs
+                    </Link>
+                </motion.div>
+
                 <motion.nav
                     className={styles.breadcrumbs}
                     initial={{ opacity: 0, x: -20 }}
@@ -46,7 +61,7 @@ const BlogDetail = () => {
                 >
                     <Link to="/" className={styles.crumbLink}>Home</Link>
                     <span className={styles.separator}>/</span>
-                    <Link to="/#blogs" className={styles.crumbLink}>Blogs</Link>
+                    <Link to="/blogs" className={styles.crumbLink}>Blogs</Link>
                     <span className={styles.separator}>/</span>
                     <span className={styles.crumbCurrent}>{blog.title}</span>
                 </motion.nav>

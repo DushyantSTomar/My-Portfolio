@@ -168,6 +168,11 @@
         font-size: 2.5rem;
       }
 
+      h3 {
+        font-size: 1.3rem;
+        white-space: nowrap; // Prevents per-character wrapping in framer motion
+      }
+
       p {
         margin: 0 auto 30px;
         font-size: 1rem;

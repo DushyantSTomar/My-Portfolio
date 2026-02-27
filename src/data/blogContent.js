@@ -5,7 +5,7 @@ export const blogContentData = {
     1: {
         title: "Research Notes: React Native 0.76 – What Changed",
         author: "Dushyant Tomar",
-        date: "February 20, 2026",
+        date: "December 13, 2025",
         heroImg: "/assets/blog-covers/rn_076_bridgeless_1771780570663.png",
         suggestedImageIdea: "A futuristic glowing blueprint of a mobile app shedding an old bridge structure.",
         content: `
@@ -61,7 +61,7 @@ When Not to Use: If you maintain a massive, legacy enterprise app with dozens of
     5: {
         title: "Building Offline-first Apps in React Native",
         author: "Dushyant Tomar",
-        date: "February 17, 2026",
+        date: "January 02, 2026",
         heroImg: "/assets/blog-covers/rn_offline_first_1771780622697.png",
         suggestedImageIdea: "A disconnected Wi-Fi symbol glowing amidst a robust database schema flowchart.",
         content: `
@@ -121,7 +121,7 @@ When Not to Use: If your app is highly transactional and reliant on absolute rea
     8: {
         title: "Fast Image Loading in RN",
         author: "Dushyant Tomar",
-        date: "February 15, 2026",
+        date: "January 17, 2026",
         heroImg: "/assets/blog-covers/rn_fast_image_1771780651616.png",
         suggestedImageIdea: "A visual comparison of a pixelated blurry image loading against a sharp, instantly-loaded high-res image.",
         content: `
@@ -185,7 +185,7 @@ When Not to Use: If your app only renders a few tiny, static, local assets bundl
     9: {
         title: "Reanimated 3 Physics",
         author: "Dushyant Tomar",
-        date: "February 12, 2026",
+        date: "January 22, 2026",
         heroImg: "/assets/blog-covers/rn_reanimated_1771780676354.png",
         suggestedImageIdea: "A smooth oscillating physics graph illustrating spring tension and friction curves.",
         content: `
@@ -266,7 +266,7 @@ When Not to Use: For simple, set-and-forget opacity cross-fades or basic linear 
     3: {
         title: "React Performance: useMemo vs useCallback",
         author: "Dushyant Tomar",
-        date: "February 10, 2026",
+        date: "December 23, 2025",
         heroImg: "/assets/blog-covers/react_memo_scale_1771780706951.png",
         suggestedImageIdea: "A visual scale heavily weighing down a CPU processor with 'unnecessary hook caches'.",
         content: `
@@ -322,7 +322,7 @@ When Not to Use: As a default boilerplate for every function inside a component.
     6: {
         title: "Clean Architecture for Frontend",
         author: "Dushyant Tomar",
-        date: "February 07, 2026",
+        date: "January 07, 2026",
         heroImg: "/assets/blog-covers/react_clean_architecture_1771780751368.png",
         suggestedImageIdea: "A clean, layered diagram separating UI components, Domain Logic, and Data Services.",
         content: `
@@ -393,7 +393,7 @@ When Not to Use: On a quick weekend hackathon project, a promotional marketing l
     11: {
         title: "Server Components Explained",
         author: "Dushyant Tomar",
-        date: "February 05, 2026",
+        date: "January 27, 2026",
         heroImg: "/assets/blog-covers/react_server_components_1771780792468.png",
         suggestedImageIdea: "A visual split between a dark server rack executing code and a light browser rendering HTML.",
         content: `
@@ -458,7 +458,7 @@ When Not to Use: If you are building a highly complex, authenticated web-based t
     12: {
         title: "Zustand vs Redux Toolkit",
         author: "Dushyant Tomar",
-        date: "February 02, 2026",
+        date: "February 01, 2026",
         heroImg: "/assets/blog-covers/react_zustand_redux_1771780823319.png",
         suggestedImageIdea: "A minimalist feather balancing on a scale against a heavy, complex toolkit toolbox.",
         content: `
@@ -525,7 +525,7 @@ When Not to Use: If your application possesses intense client-side state machine
     2: {
         title: "How WebSockets Work in Real Apps",
         author: "Dushyant Tomar",
-        date: "January 30, 2026",
+        date: "December 18, 2025",
         heroImg: "/assets/blog-covers/js_websockets_1771780849560.png",
         suggestedImageIdea: "A glowing, continuous bidirectional data pipe bridging a client laptop and a server stack.",
         content: `
@@ -601,7 +601,7 @@ When Not to Use: For fetching static JSON profiles, executing standard CRUD form
     7: {
         title: "Common JS Async Mistakes",
         author: "Dushyant Tomar",
-        date: "January 28, 2026",
+        date: "January 12, 2026",
         heroImg: "/assets/blog-covers/js_async_mistakes_1771780896125.png",
         suggestedImageIdea: "A traffic jam of data packets waiting sequentially on a single-lane road.",
         content: `
@@ -667,7 +667,7 @@ When Not to Use Sequential \`await\`: Whenever you are fetching independent, unr
     14: {
         title: "Mastering the Event Loop",
         author: "Dushyant Tomar",
-        date: "January 25, 2026",
+        date: "February 06, 2026",
         heroImg: "/assets/blog-covers/js_event_loop_1771780940331.png",
         suggestedImageIdea: "A cyclical conveyor belt sorting heavy 'macro' packages and quick 'micro' letters.",
         content: `
@@ -746,7 +746,7 @@ When Not to Use Event Loop Hacks: If you are running massive cryptographic algor
     15: {
         title: "Deep Clone in Modern JS",
         author: "Dushyant Tomar",
-        date: "January 23, 2026",
+        date: "February 11, 2026",
         heroImg: "/assets/blog-covers/js_deep_clone_1771780969618.png",
         suggestedImageIdea: "A mirror duplicating a complex object structure with 100% molecular exactness.",
         content: `
@@ -812,7 +812,7 @@ When Not to Use: The structured clone algorithm intentionally cannot clone raw D
     4: {
         title: "AI for Developers: Where It Helps, Where It Fails",
         author: "Dushyant Tomar",
-        date: "January 20, 2026",
+        date: "December 28, 2025",
         heroImg: "/assets/blog-covers/ai_helps_fails_1771780997644.png",
         suggestedImageIdea: "A robotic hand struggling to hold an intricate architecture blueprint while easily typing code.",
         content: `
@@ -872,7 +872,7 @@ When Not to Use: Never trust AI generation for critical security cryptography, f
     17: {
         title: "Prompt Engineering for Code",
         author: "Dushyant Tomar",
-        date: "January 17, 2026",
+        date: "February 16, 2026",
         heroImg: "/assets/blog-covers/ai_prompt_engineering_1771781042347.png",
         suggestedImageIdea: "A precise structural wireframe of commands routing into a glowing AI brain core.",
         content: `
@@ -945,7 +945,7 @@ When Not to Use: You do not need a massive 50-line instructional macro-prompt si
     18: {
         title: "Local LLMs via Ollama",
         author: "Dushyant Tomar",
-        date: "January 14, 2026",
+        date: "February 21, 2026",
         heroImg: "/assets/blog-covers/ai_local_llms_1771781075049.png",
         suggestedImageIdea: "A locked secure vault with an AI server running entirely inside a developer's laptop.",
         content: `
@@ -1004,7 +1004,7 @@ When Not to Use: If you require world-class, genius-level reasoning for designin
     19: {
         title: "AI-Powered Refactoring",
         author: "Dushyant Tomar",
-        date: "January 12, 2026",
+        date: "February 26, 2026",
         heroImg: "/assets/blog-covers/ai_refactoring_1771781107092.png",
         suggestedImageIdea: "A glowing robotic tool meticulously scanning and rewriting chaotic legacy code lines.",
         content: `

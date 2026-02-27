@@ -11,9 +11,16 @@
   transition: all 0.3s ease;
   background: $header-initial-bg;
 
+  // GPU Acceleration for smoother mobile stickiness
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
   &.scrolled {
     background: $header-scrolled-bg;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 0.3rem 0; // Reduced from 0.8rem
   }
@@ -59,9 +66,38 @@
   .mobileToggle {
     display: none;
     cursor: pointer;
+    padding: 10px; // Increased touch target and padding
+    margin-right: 15px; // Push it left to avoid the scrollbar overlap
+    z-index: 1001;
+  }
+
+  .playButton {
+    background: $glass-bg;
+    border: 1px solid $border-color;
+    color: $text-white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $bg-accent;
+      color: $static-white;
+      border-color: $bg-accent;
+    }
   }
 
   @media (max-width: 768px) {
+    // Stabilize mobile sticky behavior
+    padding: 0.5rem 0 !important; // Lock padding on mobile to prevent layout jitter on scroll
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; // Target non-layout properties only
+
+    &.scrolled {
+      padding: 0.5rem 0 !important; // Prevent padding shrink on mobile 
+    }
+
     .mobileToggle {
       display: block;
     }
@@ -71,7 +107,8 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(11, 29, 103, 0.95);
+      background: $bg-primary;
+      border-bottom: 1px solid $border-color;
       padding: 20px 0;
       clip-path: circle(0% at 100% 0);
       transition: clip-path 0.5s ease-in-out;
@@ -87,7 +124,7 @@
       }
 
       // Ensure Play button is clearly visible
-      button {
+      .playButton {
         margin-left: 0 !important;
         margin-top: 10px;
         transform: scale(1.1);

@@ -16,7 +16,7 @@ const Contact = () => {
             email: formData.get('user_email'),
             subject: formData.get('subject'),
             message: formData.get('message'),
-            _subject: `New submission from ${formData.get('user_name')}`, // Custom subject for the email you receive
+            _subject: `New submission from ${formData.get('user_name')}`, 
         };
 
         fetch("https://formsubmit.co/ajax/singhdushyant060@gmail.com", {

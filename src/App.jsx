@@ -14,6 +14,29 @@ import ScrollProgress from './components/ScrollProgress'
 import BackToTop from './components/BackToTop'
 import ThemeToggle from './components/ThemeToggle'
 
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+
+const ScrollToHash = () => {
+  const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      // Small timeout to ensure the DOM is fully rendered before scrolling
+      const timer = setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [hash, pathname]);
+
+  return null;
+};
+
 const Home = () => (
   <>
     <Hero />
@@ -31,6 +54,7 @@ function App() {
       <ScrollProgress />
       <ThemeToggle />
       <Header />
+      <ScrollToHash />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<BlogListing />} />
